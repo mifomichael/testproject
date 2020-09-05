@@ -4,6 +4,8 @@ from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 import os
 import tkinter.ttk as ttk
+import tkinter.colorchooser
+from tkinter.colorchooser import askcolor
 
 window = tk.Tk()
 window.title("Greetings _____")
@@ -122,6 +124,15 @@ scrollb.grid(row=7, column=2, sticky='nsew')
 the_input['yscrollcommand'] = scrollb.set
 style = ttk.Style()
 style.theme_use('clam')
+
+#----Color Chooser----
+
+def openColorDialog():
+     window.buttoncolor.configure(bg=askcolor()[1])
+
+
+window.buttoncolor = tk.Button(window,text="Choose Color",command=openColorDialog)
+window.buttoncolor.grid(row = 8, column = 0)
 
 window.mainloop()
 
